@@ -164,7 +164,7 @@ a:hover {
   margin: 2rem auto;
 }
 
-/* 1. Center and space the two images on Home */
+
 .home-page .image-row {
   display: flex;
   justify-content: center;
@@ -178,27 +178,21 @@ a:hover {
   box-shadow: 0 2px 6px var(--color-shadow);
 }
 
-/* In Home.jsx wrap your imgs in a div.image-row:
-   <div className="image-row">
-     <img …/>
-     <img …/>
-   </div>
-*/
 
-/* 2. Apply the same centered card style to every page */
+
 .create-page,
 .gallery-page,
 .detail-page,
 .edit-page {
   max-width: 800px;
-  margin: 2rem auto;      /* vertical spacing + centering */
+  margin: 2rem auto;      
   background: var(--color-light);
   padding: 2rem;
   border-radius: var(--radius);
   box-shadow: 0 2px 8px var(--color-shadow);
 }
 
-/* 3. Make your gallery list look nicer */
+
 .gallery-page ul {
   list-style: none;
   padding: 0;
@@ -219,7 +213,7 @@ a:hover {
   font-weight: 600;
 }
 
-/* 4. Ensure your form fields don’t stretch full width on small screens */
+
 .create-page form,
 .edit-page form {
   max-width: 100%;
@@ -229,7 +223,7 @@ a:hover {
   width: 100%;
 }
 
-/* 5. Responsive tweaks */
+
 @media (max-width: 600px) {
   aside {
     display: none;       

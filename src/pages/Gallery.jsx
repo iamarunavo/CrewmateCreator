@@ -1,4 +1,3 @@
-// src/pages/Gallery.jsx
 import { useEffect, useState } from 'react'
 import { supabase } from '../lib/supabaseClient'
 import { Link }     from 'react-router-dom'
@@ -27,10 +26,10 @@ export default function Gallery() {
     fetchCrew()
   }, [])
 
-  // 1️⃣ Show loading state
+
   if (crew === null) return <p>Loading gallery…</p>
 
-  // 2️⃣ Show error if any
+
   if (error) return (
     <div className="gallery-page">
       <h2>Your Crewmate Gallery!</h2>
@@ -38,7 +37,7 @@ export default function Gallery() {
     </div>
   )
 
-  // 3️⃣ Empty state
+
   if (crew.length === 0) {
     return (
       <div className="gallery-page">
@@ -49,19 +48,19 @@ export default function Gallery() {
     )
   }
 
-  // 4️⃣ Normal list
+
   return (
     <div className="gallery-page">
       <h2>Your Crewmate Gallery!</h2>
       <ul>
   {crew.map(c => (
     <li key={c.id} className="gallery-item">
-      {/* Detail link */}
+      
       <Link to={`/crew/${c.id}`} className="item-link">
         {c.name} – {c.color}, {c.speed_mph} mph
       </Link>
 
-      {/* Edit button */}
+      
       <Link to={`/crew/${c.id}/edit`}>
         <button className="btn-small">Edit</button>
       </Link>

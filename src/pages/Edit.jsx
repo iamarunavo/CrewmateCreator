@@ -1,4 +1,3 @@
-// src/pages/Edit.jsx
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
@@ -7,12 +6,12 @@ export default function Edit() {
   const { id } = useParams()
   const nav    = useNavigate()
 
-  // form state
+
   const [name, setName]   = useState('')
   const [speed, setSpeed] = useState('')
   const [color, setColor] = useState('Red')
 
-  // 1. Load current values
+
   useEffect(() => {
     supabase
       .from('crew_mates')
@@ -27,7 +26,7 @@ export default function Edit() {
       })
   }, [id])
 
-  // 2. Update handler
+
   const handleUpdate = async e => {
     e.preventDefault()
     const { error } = await supabase
@@ -36,10 +35,10 @@ export default function Edit() {
       .eq('id', id)
 
     if (error) return alert(error.message)
-    nav('/gallery')    // go back to the listing (or wherever you like)
+    nav('/gallery')    
   }
 
-  // 3. Delete handler (optional)
+
   const handleDelete = async () => {
     if (!window.confirm('Really delete this crewmate?')) return
     const { error } = await supabase
