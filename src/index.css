@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg:       #f5f6fa;
+  --color-text:     #2f3640;
+  --color-accent:   #273c75;
+  --color-light:    #ffffff;
+  --color-shadow:   rgba(0, 0, 0, 0.1);
+  --radius:         0.5rem;
+  --transition:     0.2s ease-in-out;
+}
+
+html {
+  font-size: 16px;
+}
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+
+aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background-color: var(--color-accent);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 2px 0 6px var(--color-shadow);
+}
+aside a {
+  color: var(--color-light);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color var(--transition);
+}
+aside a:hover {
+  color: var(--color-bg);
+}
+
+main {
+  margin-left: 220px;
+  padding: 2rem;
+  max-width: 960px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+
+.home-page,
+.create-page,
+.gallery-page,
+.detail-page,
+.edit-page {
+  background: var(--color-light);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+input[type="text"],
+input[type="number"],
+input[type="radio"] + span {
+  margin-top: 0.25rem;
+}
+input[type="text"],
+input[type="number"] {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color var(--transition);
+}
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+fieldset legend {
+  font-weight: 600;
+  padding: 0 0.5rem;
+}
+
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: var(--color-light);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--transition), transform var(--transition);
+}
+button:hover {
+  background-color: #192a56;
+  transform: translateY(-2px);
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+ul {
+  list-style: none;
+}
+li + li {
+  margin-top: 0.5rem;
+}
+a {
+  color: var(--color-accent);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.home-page {
+  background: var(--color-light);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px var(--color-shadow);
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+/* 1. Center and space the two images on Home */
+.home-page .image-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.home-page .image-row img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--color-shadow);
+}
+
+/* In Home.jsx wrap your imgs in a div.image-row:
+   <div className="image-row">
+     <img …/>
+     <img …/>
+   </div>
+*/
+
+/* 2. Apply the same centered card style to every page */
+.create-page,
+.gallery-page,
+.detail-page,
+.edit-page {
+  max-width: 800px;
+  margin: 2rem auto;      /* vertical spacing + centering */
+  background: var(--color-light);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px var(--color-shadow);
+}
+
+/* 3. Make your gallery list look nicer */
+.gallery-page ul {
+  list-style: none;
+  padding: 0;
+}
+.gallery-page li {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  transition: box-shadow var(--transition);
+}
+.gallery-page li:hover {
+  box-shadow: 0 2px 6px var(--color-shadow);
+}
+.gallery-page li a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* 4. Ensure your form fields don’t stretch full width on small screens */
+.create-page form,
+.edit-page form {
+  max-width: 100%;
+}
+.create-page input,
+.edit-page input {
+  width: 100%;
+}
+
+/* 5. Responsive tweaks */
+@media (max-width: 600px) {
+  aside {
+    display: none;       
+  }
+  main {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+.gallery-page ul {
+  list-style: none;
+  padding: 0;
+}
+.gallery-page .gallery-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+}
+.btn-small {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.9rem;
+}
